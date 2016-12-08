@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11542" systemVersion="15G31" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Hospital" representedClassName="Hospital" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="pets" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Pet" syncable="YES"/>
+        <relationship name="vets" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Vet" inverseName="hospitals" inverseEntity="Vet" syncable="YES"/>
+    </entity>
+    <entity name="Pet" representedClassName="Pet" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="hospital" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Hospital" syncable="YES"/>
+        <relationship name="vet" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Vet" inverseName="pets" inverseEntity="Vet" syncable="YES"/>
+    </entity>
+    <entity name="Vet" representedClassName="Vet" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="hospitals" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Hospital" inverseName="vets" inverseEntity="Hospital" syncable="YES"/>
+        <relationship name="pets" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Pet" inverseName="vet" inverseEntity="Pet" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Hospital" positionX="-63" positionY="-18" width="128" height="90"/>
+        <element name="Vet" positionX="-54" positionY="-9" width="128" height="90"/>
+        <element name="Pet" positionX="-36" positionY="9" width="128" height="90"/>
+    </elements>
+</model>
